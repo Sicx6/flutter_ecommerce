@@ -1,5 +1,6 @@
+import 'package:ecommerce_flutter/provider/product_provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../../model/product_model.dart';
 
 class productCard extends StatelessWidget {
@@ -14,6 +15,7 @@ class productCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final products = Provider.of<ProductProvider>(context, listen: false);
     return Container(
       height: 500,
       width: 100,
@@ -27,7 +29,7 @@ class productCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            product.image,
+            'assets/cloud 2.jpg',
             fit: BoxFit.fitHeight,
             height: 50,
           ),

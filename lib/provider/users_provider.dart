@@ -86,6 +86,10 @@ class AppUser extends ChangeNotifier {
   Future<void> resetPassword(String password) {
     return user!.updatePassword(password);
   }
+
+  // Future<void> verifyAuth(ActionCodeSettings email) {
+  //   return user!.sendEmailVerification(email);
+  // }
 }
 
 // Future<void> updateProfile() async {

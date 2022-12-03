@@ -6,7 +6,14 @@ import '../model/product_model.dart';
 class ProductProvider extends ChangeNotifier {
   List<Product> productList;
 
+  
+
   ProductProvider({required this.productList});
+
+
+  
+  
+
 
   addProduct(Product product) {
     productList.add(product);

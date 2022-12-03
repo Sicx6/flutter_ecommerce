@@ -1,19 +1,26 @@
-import 'package:ecommerce_flutter/provider/product_provider.dart';
-import 'package:ecommerce_flutter/screens/my%20order/order_done.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:ecommerce_flutter/provider/product_provider.dart';
+import 'package:ecommerce_flutter/screens/my%20order/order_done.dart';
 
 import '../../model/product_model.dart';
 
 class ItemDetails extends StatelessWidget {
+  Product product;
+  int index;
   ItemDetails({
     Key? key,
+    required this.product,
+    required this.index,
   }) : super(key: key);
 
   @override
   bool liked = false;
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -27,7 +34,7 @@ class ItemDetails extends StatelessWidget {
                   color: Colors.grey[200],
                 ),
                 child: Image.asset(
-                  'assets/helios.png',
+                  'assets/cloud 2.jpg',
                 ),
               ),
             ),
@@ -62,7 +69,7 @@ class ItemDetails extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Laptop Name',
+                      product.title,
                       style: GoogleFonts.abel(
                           textStyle: TextStyle(
                               fontSize: 28, fontWeight: FontWeight.w600)),
@@ -71,14 +78,14 @@ class ItemDetails extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Specification',
+                      product.specification ?? "",
                       style: GoogleFonts.abel(
                           textStyle: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400)),
                     ),
                     Text(
-                      'Item price',
-                      style: TextStyle(fontSize: 20, color: Colors.yellow),
+                      'RM ${product.price.toString()}',
+                      style: TextStyle(fontSize: 20, color: Color(0xFF9B8D15)),
                     ),
                   ],
                 ),
@@ -115,7 +122,7 @@ class ItemDetails extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Products Review',
+                      product.review ?? "",
                       style: GoogleFonts.abel(
                           textStyle: TextStyle(
                               fontSize: 28, fontWeight: FontWeight.w600)),
@@ -124,12 +131,12 @@ class ItemDetails extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Specification',
+                      product.specification ?? "",
                       style: GoogleFonts.abel(
                           textStyle: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400)),
                     ),
-                    Text('Price'),
+                    Text('RM ${product.price.toStringAsFixed(2)}'),
                   ],
                 ),
               ),
