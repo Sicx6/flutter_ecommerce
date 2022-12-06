@@ -3,6 +3,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Cart_Item_widgets.dart';
+
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
 
@@ -49,63 +51,15 @@ class Cart extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            SizedBox(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.width * 0.25,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Container(
-                      height: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 12),
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            bottomLeft: Radius.circular(15)),
-                        color: Colors.grey.withOpacity(0.2),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Product',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 8,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 12),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey.withOpacity(0.2),
-                        ),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'Product Title',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
-                          ),
-                          Text("Product Price"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: ((context, index) {
+                    return Container(
+                      margin: const EdgeInsets.all(10),
+                      child: Cart_items(),
+                    );
+                  })),
             )
           ],
         ),

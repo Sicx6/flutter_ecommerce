@@ -24,7 +24,7 @@ class DisplayName extends StatelessWidget {
                 AppUser().user!.displayName ?? '',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                     height: 1.5),
